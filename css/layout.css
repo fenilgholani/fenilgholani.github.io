@@ -658,7 +658,7 @@ footer a:hover, footer a:focus { color: #fff; }
 footer .copyright {
     margin: 0;
     padding: 0;
-    color: white;
+    color: black;
  }
 footer .copyright li {
     display: inline-block;
