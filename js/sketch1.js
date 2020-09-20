@@ -1,10 +1,10 @@
 const s1 = ( p ) => {
 
 
-let width = screen.width/2, height = 500;
+let width = screen.width/2, height = screen.height/2;
 let stars = [];
 let asteroid;
-// let rotary = 0;
+let rotary = 0;
 p.setup = function() {
     canvas = p.createCanvas(width, height);
     canvas.parent('sketch-holder1');
@@ -31,7 +31,7 @@ class Circle{
         this.x = p.random(-width, width);
         this.y = p.random(-height, height);
         this.z = p.random(width);
-        this.r = 15;
+        this.r = 10;
     }
     draw(){
         p.noStroke();
@@ -42,20 +42,20 @@ class Circle{
         vx *= 100;
         vy *= 100;
         // if(vx > width){
-        //     vx = random(width);
+        //     vx = p.random(width);
         // }
         // if(vy > height){
-        //     vy = random(height);
+        //     vy = p.random(height);
         // }
         this.z  -= 1;
         if(this.z < 1){
-            this.z = width;
+            this.z = p.width;
             this.x = p.random(-p.width, p.width);
             this.y = p.random(-p.height, p.height);
         }
         p.push()
-        // translate(this.x, this.y);
-        // rotate(rotary);
+        // p.translate(this.x, this.y);
+        // p.rotate(rotary);
         // circle(vx, vy, this.r/map(this.z, 0, width, 0, 30));
         p.image(asteroid, vx, vy, this.r/p.map(this.z, 0, width, 0, 10), this.r/p.map(this.z, 0, width, 0, 10) );
         // rotary++;
